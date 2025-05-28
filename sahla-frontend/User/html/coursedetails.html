@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details - Introduction to Python</title>
+    <link rel="stylesheet" href="/sahla-frontend/User/css/navbar.css">
+    <link rel="stylesheet" href="/sahla-frontend/User/css/coursedetails.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <div class="course-details-container">
+        <div class="course-header">
+            <div class="course-header-image">Python Course Image</div>
+            <div class="course-header-content">
+                <div class="course-header-title">Introduction to Python</div>
+                <div class="course-header-meta">Instructor: Dr. John Smith | Duration: 6 weeks | Last updated: May 2025</div>
+                <div class="rating">
+                    <span>4.5/5</span>
+                    <div class="stars">★★★★☆</div>
+                </div>
+                <div class="course-header-tags">
+                    <span class="tag">Beginner</span>
+                    <span class="tag">Programming</span>
+                </div>
+                <div class="course-description">
+                    Learn the basics of Python programming, including variables, loops, functions, and more. This course is designed for beginners with no prior programming experience, guiding you through practical examples and hands-on projects to build a strong foundation in Python.
+                </div>
+                <button class="enroll-button">Enroll Now</button>
+            </div>
+        </div>
+        <div class="course-section">
+            <h2>Course Syllabus</h2>
+            <div class="syllabus-list">
+                <div class="syllabus-item">
+                    <div class="syllabus-header">Week 1: Introduction to Python and Setup</div>
+                    <ul class="syllabus-content">
+                        <li>Lesson 1: What is Python?</li>
+                        <li>Lesson 2: Installing Python and IDE</li>
+                        <li>Lesson 3: Writing Your First Python Program</li>
+                    </ul>
+                </div>
+                <div class="syllabus-item">
+                    <div class="syllabus-header">Week 2: Variables and Data Types</div>
+                    <ul class="syllabus-content">
+                        <li>Lesson 1: Understanding Variables</li>
+                        <li>Lesson 2: Numbers, Strings, and Booleans</li>
+                        <li>Lesson 3: Type Conversion</li>
+                    </ul>
+                </div>
+                <div class="syllabus-item">
+                    <div class="syllabus-header">Week 3: Control Structures: Loops and Conditionals</div>
+                    <ul class="syllabus-content">
+                        <li>Lesson 1: If Statements</li>
+                        <li>Lesson 2: For and While Loops</li>
+                        <li>Lesson 3: Break and Continue</li>
+                    </ul>
+                </div>
+                <div class="syllabus-item">
+                    <div class="syllabus-header">Week 4: Functions and Modules</div>
+                    <ul class="syllabus-content">
+                        <li>Lesson 1: Defining Functions</li>
+                        <li>Lesson 2: Parameters and Return Values</li>
+                        <li>Lesson 3: Importing Modules</li>
+                    </ul>
+                </div>
+                <div class="syllabus-item">
+                    <div class="syllabus-header">Week 5: Working with Lists and Dictionaries</div>
+                    <ul class="syllabus-content">
+                        <li>Lesson 1: Lists and List Methods</li>
+                        <li>Lesson 2: Dictionaries and Their Uses</li>
+                        <li>Lesson 3: Nested Data Structures</li>
+                    </ul>
+                </div>
+                <div class="syllabus-item">
+                    <div class="syllabus-header">Week 6: Final Project and Review</div>
+                    <ul class="syllabus-content">
+                        <li>Lesson 1: Project Planning</li>
+                        <li>Lesson 2: Building a Simple Application</li>
+                        <li>Lesson 3: Course Recap and Q&A</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="course-section">
+            <h2>About the Instructor</h2>
+            <div class="instructor-bio">
+                Dr. John Smith is a seasoned software engineer with over 15 years of experience in teaching and developing Python-based applications. He holds a PhD in Computer Science and is passionate about making programming accessible to everyone.
+            </div>
+        </div>
+    </div>
+    <script>
+        // Accordion functionality
+        document.querySelectorAll('.syllabus-header').forEach(header => {
+            header.addEventListener('click', () => {
+                // Close all other open sections
+                document.querySelectorAll('.syllabus-content.active').forEach(content => {
+                    if (content !== header.nextElementSibling) {
+                        content.classList.remove('active');
+                        content.previousElementSibling.classList.remove('active');
+                    }
+                });
+                // Toggle the clicked section
+                const content = header.nextElementSibling;
+                const isActive = content.classList.contains('active');
+                content.classList.toggle('active', !isActive);
+                header.classList.toggle('active', !isActive);
+            });
+        });
+    </script>
+    <script src="/sahla-frontend/User/js/loadingnav.js"></script>
+</body>
+</html>

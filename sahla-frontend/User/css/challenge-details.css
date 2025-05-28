@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+}
+.challenge-details-container {
+    margin-top: 70px;
+    padding: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.challenge-header {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.challenge-header-content {
+    padding: 20px;
+}
+.challenge-header-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+.challenge-header-meta {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+.challenge-header-tags {
+    margin-bottom: 10px;
+}
+.challenge-header-tags .tag {
+    font-size: 13px;
+    color: #007bff;
+    background-color: #e7f1ff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-right: 5px;
+}
+.challenge-description {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.progress {
+    height: 100%;
+    background-color: #ff8c00;
+    color: #ffffff;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    transition: width 0.3s;
+}
+.points-tracker {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 20px;
+}
+.points-tracker span {
+    color: #ff8c00;
+    font-weight: bold;
+}
+.challenge-section {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.challenge-section h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+}
+.question {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+.question strong {
+    color: #333;
+}
+.answer-input {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    font-size: 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    outline: none;
+    resize: vertical;
+    margin-bottom: 15px;
+    font-family: 'Courier New', Courier, monospace; /* Code-friendly font */
+}
+.answer-input:focus {
+    border-color: #ff8c00;
+}
+.submit-button {
+    background-color: #ff8c00;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+.submit-button:hover {
+    background-color: #e07b00;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.submit-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+.back-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+.back-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.back-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}

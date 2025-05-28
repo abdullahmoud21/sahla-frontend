@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit-Lesson - Admin Dashboard</title>
+    <link rel="stylesheet" href="/sahla-frontend/Admin/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+<div class="container">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Admin Dashboard</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="users.html">Users</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="challenges.html">Challenges</a></li>
+                <li><a href="badges.html">Badges</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
+                <li><a href="progress.html">Progress</a></li>
+                <li><a href="tests.html">Tests</a></li>
+                <li><a href="students.html">Students</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="main-content">
+        <header class="main-header">
+            <h1>Edit Lesson</h1>
+        </header>
+        <section class="form-section">
+            <form id="lessonForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="contentType">Content Type</label>
+                    <select id="contentType" name="contentType" required onchange="toggleContentInput()">
+                        <option value="">Select Type</option>
+                        <option value="Video">Video</option>
+                        <option value="Text">Text</option>
+                        <option value="File">File</option>
+                    </select>
+                </div>
+                <div class="form-group" id="textContentGroup" style="display:none;">
+                    <label for="textContent">Text Content</label>
+                    <textarea id="textContent" name="textContent" rows="4"></textarea>
+                </div>
+                <div class="form-group" id="fileContentGroup" style="display:none;">
+                    <label for="fileContent">Upload File / Video</label>
+                    <input type="file" id="fileContent" name="fileContent">
+                </div>
+                <div class="form-group">
+                    <label for="lessonOrder">Lesson Order</label>
+                    <input type="number" id="lessonOrder" name="lessonOrder" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="section">Section</label>
+                    <input type="text" id="section" name="section" placeholder="e.g. Week 1" required>
+                </div>
+                <div class="form-group">
+                    <label for="courseId">Course</label>
+                    <select id="courseId" name="courseId" required>
+                        <option value="">Select Course</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a href="lessons.html" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </section>
+    </main>
+</div>
+<script>
+function toggleContentInput() {
+    const type = document.getElementById("contentType").value;
+    document.getElementById("textContentGroup").style.display = (type === "Text") ? "block" : "none";
+    document.getElementById("fileContentGroup").style.display = (type === "Video" || type === "File") ? "block" : "none";
+}
+
+const token = localStorage.getItem("jwtToken");
+if (!token) {
+    alert("❌ You are not logged in. Redirecting to login...");
+    window.location.href = "login.html";
+}
+
+const urlParams = new URLSearchParams(window.location.search);
+const lessonId = urlParams.get("id");
+
+fetch("https://localhost:7273/api/Course/GetMyCourses", {
+    headers: { "Authorization": `Bearer ${token}` }
+})
+.then(res => res.json())
+.then(response => {
+    const select = document.getElementById("courseId");
+    response.data.forEach(course => {
+        const option = document.createElement("option");
+        option.value = course.coursId;
+        option.textContent = course.title;
+        select.appendChild(option);
+    });
+
+    if (lessonId) {
+        fetch(`https://localhost:7273/api/Lesson/GetLessonById/${lessonId}`, {
+            headers: { "Authorization": `Bearer ${token}` }
+        })
+        .then(res => {
+            if (!res.ok) throw new Error("Lesson not found");
+            return res.json();
+        })
+        .then(response => {
+            const data = response.data;
+            document.getElementById("title").value = data.title;
+            document.getElementById("contentType").value = data.contentType;
+            document.getElementById("lessonOrder").value = data.lessonOrder;
+            document.getElementById("courseId").value = data.courseId;
+            document.getElementById("section").value = data.section || "";
+
+            toggleContentInput();
+            if (data.contentType === "Text") {
+                document.getElementById("textContent").value = data.contentUrl;
+            }
+        })
+        .catch(error => {
+            console.error(error);
+            Swal.fire({ icon: 'error', title: 'Error', text: error.message });
+        });
+    }
+});
+</script>
+</body>
+</html>

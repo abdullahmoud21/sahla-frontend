@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Home</title>
+    <link rel="stylesheet" href="/sahla-frontend/Admin/css/home.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Admin Dashboard</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="home.html" class="active">Home</a></li>
+                    <li><a href="users.html">Users</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="challenges.html">Challenges</a></li>
+                    <li><a href="reports.html">Reports</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                    <li><a href="logout.html">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1 id="admin-name" style="font-size: 18px; color: #333;"></h1>
+            </header>
+            <section class="dashboard-overview">
+                <div class="card">
+                    <h3>Total Users</h3>
+                    <p class="card-value" id="total-users-count">Loading...</p>
+                </div>
+                <div class="card">
+                    <h3>Active Courses</h3>
+                    <p class="card-value">56</p>
+                </div>
+                <div class="card">
+                    <h3>Challenges Completed</h3>
+                    <p class="card-value">789</p>
+                </div>
+                <div class="card">
+                    <h3>Pending Reports</h3>
+                    <p class="card-value">12</p>
+                </div>
+            </section>
+            <section class="recent-activity">
+                <h2>Recent Activity</h2>
+                <ul>
+                    <li>User John Doe enrolled in "Python Basics" - 2 hours ago</li>
+                    <li>Challenge "Code Quiz" completed by 15 users - 5 hours ago</li>
+                    <li>Course "Web Development" updated - 1 day ago</li>
+                    <li>New user Jane Smith registered - 1 day ago</li>
+                </ul>
+            </section>
+            <section class="leaderboard-section">
+                <h2>Top Students Leaderboard</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Alice Johnson</td>
+                            <td>1250</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Bob Smith</td>
+                            <td>1100</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Clara Davis</td>
+                            <td>950</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="/sahla-frontend/Admin/js/getadminname.js"></script>
+</body>
+</html>

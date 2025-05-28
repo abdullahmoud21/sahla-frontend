@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Course - Admin Dashboard</title>
+  <link rel="stylesheet" href="/sahla-frontend/Admin/css/styles.css" />
+</head>
+<body>
+<div class="container">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>Admin Dashboard</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="users.html">Users</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="logout.html">Logout</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <header class="main-header">
+      <h1>Edit Course</h1>
+    </header>
+    <section class="form-section">
+      <form id="courseForm" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="coursId" id="coursId" />
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="level">Level</label>
+          <select id="level" name="level" required>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input type="text" id="category" name="category" required />
+        </div>
+        <div class="form-group">
+          <label for="profilePicture">Update Image</label>
+          <input type="file" id="profilePicture" name="profilePicture" />
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <a href="courses.html" class="btn btn-secondary">Cancel</a>
+        </div>
+      </form>
+    </section>
+  </main>
+</div>
+
+<script src="/sahla-frontend/Admin/js/EditCourse.js"></script>
+</body>
+</html>
